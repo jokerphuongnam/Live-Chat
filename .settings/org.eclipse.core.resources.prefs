@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/chat/Chat.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/chat/left/rooms.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/register/Register.jsp=UTF-8
+encoding//src/chat/controller/AjaxController.java=UTF-8
+encoding//src/chat/controller/ChatController.java=UTF-8
+encoding//src/chat/controller/EditController.java=UTF-8
+encoding//src/chat/controller/LoginController.java=UTF-8
+encoding//src/chat/controller/SocketController.java=UTF-8
+encoding//src/chat/interceptor/LoginInterceptor.java=UTF-8
+encoding//src/chat/roomchat/Room.java=UTF-8
+encoding//src/chat/utils/CryptUtil.java=UTF-8
+encoding//src/chat/utils/JsonUtil.java=UTF-8

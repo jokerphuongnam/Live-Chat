@@ -1,0 +1,71 @@
+.login_card {
+	padding: 50px;
+	color: white;
+}
+
+.card-header {
+	background-color: transparent !important;
+	border-bottom: 0px !important;
+}
+
+.card-header {
+	cursor: context-menu;
+}
+
+.form-login {
+	text-align: center;
+}
+
+#login_logo {
+	height: 80px;
+	width: 80px;
+}
+
+.input-group {
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 20px !important;
+	margin: 16px;
+}
+
+.username, .password {
+	border-radius: 15px 0 0 15px !important;
+	background-color: transparent;
+	border: 0 !important;
+	color: white !important;
+	width: 100%;
+}
+
+.username:focus, .password:focus {
+	box-shadow: none !important;
+	background-color: transparent;
+	outline: 0px !important;
+}
+
+.input-group input[type=text]{
+	border-radius: 0px 20px 20px 0px !important;
+}
+
+.input-group input[type=password]{
+	border-radius: 0px 20px 20px 0px !important;
+}
+.loginBtn {
+	color: white !important;
+	margin: 0px 0px 16px 16px;
+	box-shadow: none !important;
+	border-radius: 15px !important;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	width: 90% !important;
+	border-radius: 20px !important;
+	transition-duration: 0.8s;
+}
+
+.loginBtn:hover {
+	background-color: transparent !important;
+	color: white !important;
+}
+
+@media ( max-width : 576px) {
+	.rigister_card, .login_card {
+		margin-bottom: 15px !important;
+	}
+}

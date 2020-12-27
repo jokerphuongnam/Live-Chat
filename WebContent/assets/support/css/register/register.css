@@ -1,0 +1,109 @@
+.login_card {
+	padding: 50px;
+	color: white;
+}
+
+.card-header {
+	background-color: transparent !important;
+	border-bottom: 0px !important;
+}
+
+.card-header {
+	cursor: context-menu;
+}
+
+.register {
+	text-align: center;
+	background: (0, 0, 0, 0.4) !important;
+}
+
+#login_logo {
+	height: 80px;
+	width: 80px;
+}
+
+.input-group {
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 20px !important;
+	margin: 16px;
+	width: 50%;
+}
+
+.error-area {
+	margin: 16px;
+}
+
+.tb-label {
+	border-radius: 15px 0 0 15px !important;
+	background-color: transparent;
+	border: 0 !important;
+	color: white !important;
+}
+
+.tb-label:focus {
+	box-shadow: none !important;
+	background-color: transparent;
+	outline: 0px !important;
+}
+
+.input-group input[type=text] {
+	border-radius: 0px 20px 20px 0px !important;
+	background: transparent;
+	border: 0px;
+	color: white;
+}
+
+.input-group input::-webkit-outer-spin-button, .input-group input::-webkit-inner-spin-button
+	{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.input-group input[type=number] {
+	border-radius: 0px 20px 20px 0px !important;
+	background: transparent;
+	border: 0px;
+	color: white;
+	-moz-appearance: textfield;
+}
+
+.input-group input[type=password] {
+	border-radius: 0px 20px 20px 0px !important;
+	background: transparent;
+	border: 0px;
+	color: white;
+}
+
+.image-input{
+    width: fit-content;
+    border-radius: 50% !important;
+    position:relative;
+    display:flex;
+}
+
+.makup-avatar{
+	cursor: pointer;
+}
+
+.select {
+	border-radius: 0px 20px 20px 0px !important;
+	background: transparent;
+	border: 0px;
+	color: white;
+}
+
+.loginBtn:hover {
+	background-color: transparent !important;
+	color: white !important;
+}
+
+.ui-datepicker {
+	background-color: white !important;
+	border-radius: 10px;
+}
+
+@media ( max-width : 576px) {
+	.rigister_card, .login_card {
+		margin-bottom: 15px !important;
+	}
+}

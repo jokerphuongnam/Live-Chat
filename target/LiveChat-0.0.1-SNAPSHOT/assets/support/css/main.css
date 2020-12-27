@@ -1,0 +1,51 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    height: 90%;
+    border-radius: 20px !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    overflow-x: hidden !important;
+}
+
+.scrollbox {
+    overflow: hidden !important;
+    transition-duration: 0.8s;
+}
+
+.scrollbox-content {
+    overflow: hidden !important;
+    transition-duration: 0.8s;
+}
+
+.scrollbox:hover,
+.scrollbox:focus {
+    overflow-x: auto !important;
+}
+
+.scrollbox::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.scrollbox::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+}
+
+.scrollbox::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}

@@ -1,0 +1,83 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	background: #7F7FD5;
+	background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+}
+
+.chat {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.card {
+	height: 90%;
+	border-radius: 20px !important;
+	background-color: rgba(0, 0, 0, 0.4) !important;
+	overflow-x: hidden !important;
+}
+
+.scrollBox {
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+	visibility: hidden !important;
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+	margin-left: 5px !important;
+	margin-right: 5px !important;
+	transition-duration: 0.8s;
+	display: block;
+}
+
+.scrollBox:hover, .scrollBox:focus, .scrollBox-content {
+	visibility: visible !important;
+}
+
+.scrollBox::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+.scrollBox::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+}
+
+.user_img {
+	height: 70px;
+	width: 70px;
+	border: 1.5px solid #f5f6fa;
+}
+
+.error{
+	color:  #c23616 !important;;
+	font-style: italic;
+}
+
+.loginBtn {
+	color: white !important;
+	margin: 0px 0px 16px 16px;
+	box-shadow: none !important;
+	border-radius: 15px !important;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	width: 90% !important;
+	border-radius: 20px !important;
+	transition-duration: 0.8s;
+}
+
+input[type=file] {
+      height:70px;
+      width:70px;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      cursor:pointer;
+}
+
+.scrollBox::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #555;
+}
