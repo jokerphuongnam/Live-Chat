@@ -70,6 +70,7 @@
 							test="${currentRoom.getClass().name == 'chat.roomchat.GroupChat'}">
 							<li data-id="edit_group_name"><i class="fas fa-pen-nib"></i>Change
 								group name</li>
+							<li data-id="members"><i class="fas fa-users"></i>Members</li>
 							<li data-id="edit_image_group"><i
 								class=" fas fa-user-circle "></i>Change image group</li>
 							<li data-id="leave_group"><i class="fas fa-sign-out-alt"></i>Leave
@@ -86,7 +87,7 @@
 				</div>
 			</div>
 			<div class="right_helper_action_menu roomsjoined">
-				<span>List group can invite</span>
+				<span></span>
 				<ul class="rooms"></ul>
 			</div>
 			<div class="right_helper_action_menu upload_image">

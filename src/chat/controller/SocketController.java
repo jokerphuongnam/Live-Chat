@@ -134,6 +134,7 @@ public final class SocketController {
 
 			private final void changeCurrentRoom(StoredProcedureQuery query) {
 				setParameter("@ID_ROOM", idRoom, Long.class);
+				setParameter("@ID_USER", currentUser.getIdUser(), Long.class);
 				Map<String, Object> mapFieldValue = new MapperUtil.MapColumn(SqlUtil.FIELD_ROOM,
 						query.getSingleResult()).toMap();
 				if (mapFieldValue.get("founded_time") == null) {
@@ -329,7 +330,6 @@ public final class SocketController {
 
 	@RequestMapping(value = "/" + ConstanceUtil.ADD_GROUP + "/{idRoomUrl}", method = RequestMethod.POST)
 	private final String addMemberToGroup(@RequestBody Long[] requestData) {
-		System.out.println(requestData[0] + " - " + requestData[1]);
 		SqlUtil.executeStoreProduce("SP_ADDMEMBER", new SQLHandler() {
 			@Override
 			protected void success(StoredProcedureQuery query) {

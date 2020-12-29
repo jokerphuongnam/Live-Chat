@@ -95,7 +95,7 @@ public final class SqlUtil {
 
 	public static final String[] FIELD_GETROOMCHAT_PAGING = { "id_chat", "is_waiting", "name_group", "image_group",
 			"founded_time", "id_color_message", "start_color", "end_color", "name_color", "id_content_message",
-			"send_time", "sender", "id_message", "type_message", "content_message" };
+			"send_time", "id_user", "id_message", "type_message", "content_message" };
 	public static final String[] FIELD_MESSAGES = { "id_chat", "id_message", "id_user", "send_time",
 			"id_content_message", "content_message", "type_message" };
 	public static final String[] FIELD_MEMBERS = { "id_chat", "id_user", "avatar", "first_name", "last_name",

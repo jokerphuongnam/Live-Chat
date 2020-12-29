@@ -104,9 +104,9 @@ const chatPartnerMess = (message) => {
 }
 
 const roomChatInfo = (room) => {
-    if (!room.isGroup) {
-        const status = room.offline == 'online' ? 'Online' : `Offline by ${room.offline}`
-        return `
+        if (!room.isGroup) {
+            const status = room.offline == 'online' ? 'Online' : `Offline by ${room.offline}`
+            return `
             <div class="img_cont ">
                 <img
                     src="${room.avatar == undefined ? 'assets/images/Login.png' : partnerUser.avatar}"
@@ -149,16 +149,16 @@ const usersSearched = (user) => {
     `
 }
 
-const roomsJoined = (room) => {
+const roomsJoined = (result) => {
     return `
-        <li class="user user-search" data-id="${rnewRoomInRooms}">
+        <li class="user user-search" data-id="${result.id}">
             <div class="listOfSearch-user d-flex bd-highlight ">
                 <div class="img_cont_mini ">
-                <img src="${room.image == undefined || room.image == null ? 'assets/images/Login.png' : room.image}"
+                <img src="${result.image == undefined || result.image == null ? 'assets/images/Login.png' : result.image}"
                     class="rounded-circle user_image_mini ">
                 </div>
                 <div class="room_info_cell ">
-                    <span>${room.name == undefined || room.name == null ? 'Insert Group Name' : room.name}</span>
+                    <span>${result.name == undefined || result.name == null ? 'Insert Group Name' : result.name}</span>
                 </div>
             </div>
         </li>
@@ -221,6 +221,7 @@ const actionMenuWhenChangeRoom = (isGroup) => {
     }
     return `
         <li data-id="edit_nick_name"><i class="fas fa-pen-nib"></i>Edit nickname</li>
+        <li data-id="members"><i class="fas fa-users"></i>Members</li>
         <li data-id="edit_group_name"><i class="fas fa-pen-nib"></i>Edit group name</li>
         <li data-id="edit_image_group"><i class=" fas fa-user-circle "></i>Change image group</li>
         <li data-id="leave_group"><i class="fas fa-sign-out-alt"></i>Leave group</li>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -71,6 +72,8 @@ public final class AjaxController {
 		return members;
 	}
 
+	private JsonUtil.UsersJson usersJsonConfigure = new JsonUtil.UsersJson();
+
 	@RequestMapping(value = "/" + ConstanceUtil.SEARCH + "/{searchWord}", method = RequestMethod.GET)
 	private final @ResponseBody String searchUser(
 			@CookieValue(ConstanceUtil.CURRENT_USER_COOKIE) String currentUserJson, @PathVariable String searchWord) {
@@ -89,7 +92,7 @@ public final class AjaxController {
 				for (Object result : results) {
 					users.add(new User().mapByObject(new MapperUtil.MapColumn(SqlUtil.FIELD_USER, result).toMap()));
 				}
-				usersJson.set(new JsonUtil<List>(List.class, new JsonUtil.UsersJson()).endcode(users));
+				usersJson.set(new JsonUtil<List>(List.class, usersJsonConfigure).endcode(users));
 			}
 
 			@Override
@@ -174,6 +177,79 @@ public final class AjaxController {
 						+ new JsonUtil<GroupChat[]>(GroupChat[].class, new JsonUtil.RoomsJson())
 								.endcode((GroupChat[]) groups.toArray(new GroupChat[groups.size()]))
 						+ ", \"id\": " + query.getOutputParameterValue("@ID_RECIVEID") + "}");
+			}
+
+			@Override
+			public void error(Exception e) {
+				e.printStackTrace();
+			}
+		});
+		return roomJson.get();
+	}
+
+	@RequestMapping(value = "/" + ConstanceUtil.MEMBERS + "/{idRoomUrl}", method = RequestMethod.GET)
+	private final @ResponseBody String getMembers(@PathVariable Long idRoomUrl,
+			@CookieValue(ConstanceUtil.CURRENT_USER_COOKIE) String currentUserJson) {
+		CurrentUser currentUser = new JsonUtil<CurrentUser>(CurrentUser.class,
+				new JsonUtil.CurrentUserForCookiesConfigs()).decode(currentUserJson);
+		AtomicReference<String> membersJson = new AtomicReference<String>("");
+		SqlUtil.executeStoreProduce("SP_GETMEMBERBYROOMID", new SQLHandler() {
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			@Override
+			protected void success(StoredProcedureQuery query) {
+				super.success(query);
+				setParameter("@ID_CHAT", idRoomUrl, Long.class);
+				List<Member> members = new ArrayList<Member>();
+				query.getResultList().forEach(result -> {
+					members.add(new MemberGroup()
+							.mapByObject(new MapperUtil.MapColumn(SqlUtil.FIELD_MEMBERS, result).toMap()));
+				});
+				List<User> users = new ArrayList<User>();
+				members.forEach(member -> {
+					if (member.getId().getIdUser() != currentUser.getIdUser()) {
+						users.add(member.getMember());
+					}
+				});
+				membersJson.set(new JsonUtil<List>(List.class, usersJsonConfigure).endcode(users));
+			}
+
+			@Override
+			public void error(Exception e) {
+				e.printStackTrace();
+			}
+		});
+		return membersJson.get();
+	}
+
+	@RequestMapping(value = "/" + ConstanceUtil.MEMBERS + "/{idRoom}", method = RequestMethod.POST)
+	private final @ResponseBody String clickMember(@RequestBody String requestData, @PathVariable String idRoom,
+			@CookieValue(ConstanceUtil.CURRENT_USER_COOKIE) String currentUserJson) {
+		CurrentUser currentUser = new JsonUtil<CurrentUser>(CurrentUser.class,
+				new JsonUtil.CurrentUserForCookiesConfigs()).decode(currentUserJson);
+		AtomicReference<String> roomJson = new AtomicReference<String>("");
+		SqlUtil.executeStoreProduce("SP_GETROOMBY_IDUSER", new SQLHandler() {
+			private Room currentRoom;
+
+			@Override
+			protected void success(StoredProcedureQuery query) {
+				super.success(query);
+				changeCurrentRoom(query);
+				if (currentRoom != null) {
+					roomJson.set(String.valueOf(currentRoom.getIdRoom()));
+				} else {
+					roomJson.set("-1");
+				}
+			}
+
+			private final void changeCurrentRoom(StoredProcedureQuery query) {
+				setParameter("@ID_CURRENTUSER", currentUser.getIdUser(), Long.class);
+				setParameter("@ID_RECIVEID", MapperUtil.mapForField(CryptUtil.decrypt(new JsonUtil<String>(String.class).decode(requestData))), Long.class);
+				if (query.getResultList().size() != 0) {
+					currentRoom = new InboxChat()
+							.mapByObject(new MapperUtil.MapColumn(SqlUtil.FIELD_ROOM, query.getSingleResult()).toMap());
+				} else {
+					currentRoom = null;
+				}
 			}
 
 			@Override

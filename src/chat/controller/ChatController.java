@@ -120,13 +120,13 @@ public final class ChatController {
 							changeCurrentRoom(orderQuery, idRoom);
 						}, Room.class, GroupChat.class, InboxChat.class);
 					}
-					if(currentRoom != null) {
+					if (currentRoom != null) {
 						orderExcute("SP_GETMESSAGESBYTYPE_PAGING", orderQuery -> {
 							addMessages(orderQuery);
 						});
 						model.addAttribute("currentRoom", currentRoom);
 						LoginController.addIdCurrentRoom(response, request, currentUserJson, idRoom);
-					}else {
+					} else {
 						LoginController.addIdCurrentRoom(response, request, currentUserJson, rooms.get(0).getIdRoom());
 						roomId.set(rooms.get(0).getIdRoom());
 					}
@@ -152,7 +152,7 @@ public final class ChatController {
 					} else {
 						currentRoom = new GroupChat().mapByObject(mapFieldValue);
 					}
-				}else {
+				} else {
 					currentRoom = null;
 				}
 			}
@@ -202,7 +202,7 @@ public final class ChatController {
 			}
 
 		});
-		if(roomId.get() != -1) {
+		if (roomId.get() != -1) {
 			return "redirect:/chat/" + roomId.get();
 		}
 		return "chat/Chat";

@@ -15,4 +15,5 @@ public final class ConstanceUtil {
 	public static final String EDIT_NICKNAME = "editnickname";
 	public static final String EDIT_IMAGE_GROUP = "editimagegroup";
 	public static final String EDIT_GROUP_NAME = "editgroupname";
+	public static final String MEMBERS = "members";
 }

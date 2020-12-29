@@ -119,6 +119,40 @@ public final class JsonUtil<T> {
 		public static final String[] FIELDS = { "id", "fhasbd", "hasdb" };
 	}
 
+	public static final class MembersJsonConfigure
+			implements JsonSerializer<CurrentUser>, JsonDeserializer<CurrentUser> {
+		@Override
+		public final JsonElement serialize(CurrentUser src, Type typeOfSrc, JsonSerializationContext context) {
+			JsonObject jsonObject = new JsonObject();
+			jsonObject.addProperty(FIELDS[0], CryptUtil.encrypt(src.getIdUser()));
+			jsonObject.addProperty(FIELDS[1], CryptUtil.encrypt(src.getAvatar().trim()));
+			jsonObject.addProperty(FIELDS[2], CryptUtil.encrypt(src.getFirstName().trim()));
+			jsonObject.addProperty(FIELDS[3], CryptUtil.encrypt(src.getLastName().trim()));
+			return jsonObject;
+		}
+
+		@Override
+		public final CurrentUser deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+				throws JsonParseException {
+			return new CurrentUser().mapByObject(createMapDeserialize(json.getAsJsonObject()));
+		}
+
+		private static final Map<String, Object> createMapDeserialize(JsonObject jsonObject) {
+			Map<String, Object> mapFieldValue = new HashMap<String, Object>();
+			mapFieldValue.put("idUser",
+					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[0])))));
+			mapFieldValue.put("avatar",
+					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[2])))));
+			mapFieldValue.put("first_name",
+					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[1])))));
+			mapFieldValue.put("last_name",
+					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[2])))));
+			return mapFieldValue;
+		}
+
+		public static final String[] FIELDS = { "id", "image", "first_name","last_name" };
+	}
+
 	public static final class ContentMessageForSendMessage
 			implements JsonSerializer<Room>, JsonDeserializer<ContentMessage> {
 
@@ -255,23 +289,6 @@ public final class JsonUtil<T> {
 				"send_time", "id_room", "name_group", "id_sender" };
 	}
 
-	public static final class UserJson implements JsonSerializer<User>, JsonDeserializer<User> {
-
-		@Override
-		public JsonElement serialize(User src, Type typeOfSrc, JsonSerializationContext context) {
-			return createUserJson(src, typeOfSrc, context, FIELDS);
-		}
-
-		@Override
-		public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-				throws JsonParseException {
-			return null;
-		}
-
-		public static final String[] FIELDS = { "id_user", "avatar", "first_name", "last_name", "sex", "birth_day",
-				"address", "status", "join_time" };
-	}
-
 	private static final JsonElement createUserJson(User src, Type typeOfSrc, JsonSerializationContext context,
 			String[] FIELDS) {
 		JsonObject jsonObject = new JsonObject();
@@ -288,7 +305,9 @@ public final class JsonUtil<T> {
 		if (src.getStatus() != null) {
 			jsonObject.addProperty(FIELDS[7], new SimpleDateFormat("hh:mm dd/MM/yyyy").format(src.getStatus()));
 		}
-		jsonObject.addProperty(FIELDS[8], simpleDateFormat.format(src.getJoinTime()));
+		if(src.getJoinTime()!= null) {
+			jsonObject.addProperty(FIELDS[8], simpleDateFormat.format(src.getJoinTime()));
+		}
 		return jsonObject;
 	}
 

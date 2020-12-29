@@ -32,6 +32,7 @@ public final class CryptUtil {
 			cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 			return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
