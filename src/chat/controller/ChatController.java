@@ -80,6 +80,7 @@ public final class ChatController {
 				new JsonUtil.CurrentUserForCookiesConfigs()).decode(currentUserJson);
 		CurrentUser currentUser = SqlUtil.login(currentUserDto.getEmail(), currentUserDto.getPassword());
 		model.addAttribute("currentUser", currentUser);
+		AtomicReference<Long> roomId = new AtomicReference<Long>(-1L);
 		SqlUtil.executeStoreProduce("SP_GETROOMCHAT_PAGING", new SqlUtil.SQLHandler() {
 			private List<Room> rooms = new ArrayList<Room>();
 			private Room currentRoom = null;
@@ -108,7 +109,7 @@ public final class ChatController {
 							getMembersRoom(orderQuery, room);
 						});
 					});
-					LoginController.addIdCurrentRoom(response, request, currentUserJson, idRoom);
+					model.addAttribute("rooms", rooms);
 					for (Room room : rooms) {
 						if (room.getIdRoom() == idRoom) {
 							currentRoom = room;
@@ -119,11 +120,16 @@ public final class ChatController {
 							changeCurrentRoom(orderQuery, idRoom);
 						}, Room.class, GroupChat.class, InboxChat.class);
 					}
-					orderExcute("SP_GETMESSAGESBYTYPE_PAGING", orderQuery -> {
-						addMessages(orderQuery);
-					});
-					model.addAttribute("currentRoom", currentRoom);
-					model.addAttribute("rooms", rooms);
+					if(currentRoom != null) {
+						orderExcute("SP_GETMESSAGESBYTYPE_PAGING", orderQuery -> {
+							addMessages(orderQuery);
+						});
+						model.addAttribute("currentRoom", currentRoom);
+						LoginController.addIdCurrentRoom(response, request, currentUserJson, idRoom);
+					}else {
+						LoginController.addIdCurrentRoom(response, request, currentUserJson, rooms.get(0).getIdRoom());
+						roomId.set(rooms.get(0).getIdRoom());
+					}
 				} else {
 					model.addAttribute("currentRoom", null);
 					model.addAttribute("rooms", null);
@@ -137,12 +143,17 @@ public final class ChatController {
 
 			private final void changeCurrentRoom(StoredProcedureQuery query, Long idCurrentRoom) {
 				setParameter("@ID_ROOM", idCurrentRoom, Long.class);
-				Map<String, Object> mapFieldValue = new MapperUtil.MapColumn(SqlUtil.FIELD_ROOM,
-						query.getSingleResult()).toMap();
-				if (mapFieldValue.get("founded_time") == null) {
-					currentRoom = new InboxChat().mapByObject(mapFieldValue);
-				} else {
-					currentRoom = new GroupChat().mapByObject(mapFieldValue);
+				setParameter("@ID_USER", currentUser.getIdUser(), Long.class);
+				if (query.getResultList().size() > 0) {
+					Map<String, Object> mapFieldValue = new MapperUtil.MapColumn(SqlUtil.FIELD_ROOM,
+							query.getSingleResult()).toMap();
+					if (mapFieldValue.get("founded_time") == null) {
+						currentRoom = new InboxChat().mapByObject(mapFieldValue);
+					} else {
+						currentRoom = new GroupChat().mapByObject(mapFieldValue);
+					}
+				}else {
+					currentRoom = null;
 				}
 			}
 
@@ -191,7 +202,9 @@ public final class ChatController {
 			}
 
 		});
-
+		if(roomId.get() != -1) {
+			return "redirect:/chat/" + roomId.get();
+		}
 		return "chat/Chat";
 	}
 

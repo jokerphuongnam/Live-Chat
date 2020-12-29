@@ -59,7 +59,8 @@ import lombok.experimental.SuperBuilder;
 						@StoredProcedureParameter(name = "@ROW_OF_PAGE", mode = ParameterMode.IN, type = Integer.class) }),
 		@NamedStoredProcedureQuery(name = "SP_GETROOMBYIDROOM", procedureName = "SP_GETROOMBYIDROOM", resultClasses = {
 				Room.class, GroupChat.class, InboxChat.class }, parameters = {
-						@StoredProcedureParameter(name = "@ID_ROOM", mode = ParameterMode.IN, type = Long.class) }),
+						@StoredProcedureParameter(name = "@ID_ROOM", mode = ParameterMode.IN, type = Long.class),
+						@StoredProcedureParameter(name = "@ID_USER", mode = ParameterMode.IN, type = Long.class) }),
 		@NamedStoredProcedureQuery(name = "SP_GETROOMBY_IDUSER", procedureName = "SP_GETROOMBY_IDUSER", resultClasses = {
 				Room.class, GroupChat.class, InboxChat.class }, parameters = {
 						@StoredProcedureParameter(name = "@ID_CURRENTUSER", mode = ParameterMode.IN, type = Long.class),

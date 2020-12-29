@@ -1,489 +1,501 @@
 .contacts_body {
-    padding: 0.75rem 0;
-    white-space: nowrap;
+	padding: 0.75rem 0;
+	white-space: nowrap;
 }
 
 a {
-    text-decoration: none !important;
+	text-decoration: none !important;
 }
 
-.msg_card_body {}
+.msg_card_body {
+	
+}
 
 .show-group {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border-radius: 20px !important;
-    margin: 16px;
-    width: 80%;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 20px !important;
+	margin: 16px;
+	width: 80%;
 }
 
 .upload_image button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .upload_image i {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .name_user {
-    font-weight: bold !important;
-    font-size: 20px !important;
-    color: #E0FFFF !important;
-    cursor: context-menu !important;
-    text-overflow: ellipsis !important;
+	font-weight: bold !important;
+	font-size: 20px !important;
+	color: #E0FFFF !important;
+	cursor: context-menu !important;
+	text-overflow: ellipsis !important;
 }
 
 .card-header {
-    border-radius: 15px 15px 0 0 !important;
-    border-bottom: 0 !important;
+	border-radius: 15px 15px 0 0 !important;
+	border-bottom: 0 !important;
 }
 
 .info-user-group {
-    white-space: nowrap;
-    margin-bottom: 13px;
+	white-space: nowrap;
+	margin-bottom: 13px;
 }
 
 .user_info {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-    vertical-align: baseline;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 15px;
+	vertical-align: baseline;
 }
 
 .user_info span {
-    font-size: 20px;
-    color: white;
-    cursor: context-menu;
-    text-overflow: ellipsis;
+	font-size: 20px;
+	color: white;
+	cursor: context-menu;
+	text-overflow: ellipsis;
 }
 
 #name_use {
-    font-size: 35px !important;
+	font-size: 35px !important;
 }
 
 .card-footer {
-    border-radius: 0 0 15px 15px !important;
-    border-top: 0 !important;
+	border-radius: 0 0 15px 15px !important;
+	border-top: 0 !important;
 }
 
 .container {
-    align-content: center;
+	align-content: center;
 }
 
 .search {
-    border-radius: 15px 0 0 15px !important;
-    background-color: transparent;
-    border: 0 !important;
-    color: white !important;
+	border-radius: 15px 0 0 15px !important;
+	background-color: transparent;
+	border: 0 !important;
+	color: white !important;
 }
 
 .search:focus {
-    box-shadow: none !important;
-    background-color: transparent;
-    outline: 0px !important;
+	box-shadow: none !important;
+	background-color: transparent;
+	outline: 0px !important;
 }
 
 .type_msg {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border: 0 !important;
-    color: white !important;
-    height: 60px !important;
-    overflow-y: auto;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border: 0 !important;
+	color: white !important;
+	height: 60px !important;
+	overflow-y: auto;
 }
 
 .type_msg:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
+	box-shadow: none !important;
+	outline: 0px !important;
 }
 
 .input-group {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border-radius: 20px !important;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 20px !important;
 }
 
 .attach_btn {
-    background-color: transparent !important;
-    border: 0 !important;
-    color: white !important;
-    cursor: pointer;
+	background-color: transparent !important;
+	border: 0 !important;
+	color: white !important;
+	cursor: pointer;
 }
 
 .send_btn {
-    background-color: transparent !important;
-    border: 0 !important;
-    color: white !important;
-    cursor: pointer;
+	background-color: transparent !important;
+	border: 0 !important;
+	color: white !important;
+	cursor: pointer;
 }
 
 .search_btn {
-    border-radius: 0 15px 15px 0 !important;
-    background-color: transparent;
-    border: 0 !important;
-    color: white !important;
-    cursor: pointer;
+	border-radius: 0 15px 15px 0 !important;
+	background-color: transparent;
+	border: 0 !important;
+	color: white !important;
+	cursor: pointer;
 }
 
 .scrollBox-content {
-    height: 100%
+	height: 100%
 }
 
 .contacts {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 .contacts li {
-    width: 100% !important;
-    padding: 5px 10px;
-    margin-bottom: 15px !important;
+	width: 100% !important;
+	padding: 5px 10px;
+	margin-bottom: 15px !important;
 }
 
 .listOfSearch {
-    padding: 0;
-    display: none;
+	padding: 0;
+	display: none;
 }
 
 .listOfSearch li {
-    height: 50px !important;
-    padding: 5px 10px;
-    margin-bottom: 15px !important;
-    list-style: none;
+	height: 50px !important;
+	padding: 5px 10px;
+	margin-bottom: 15px !important;
+	list-style: none;
 }
 
 .listOfSearch li:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
 }
 
 .listOfSearch-user {
-    height: 40px !important;
+	height: 40px !important;
 }
 
 .contacts {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 .contacts li {
-    width: 100% !important;
-    padding: 5px 10px;
-    margin-bottom: 15px !important;
+	width: 100% !important;
+	padding: 5px 10px;
+	margin-bottom: 5px !important;
 }
 
 .active {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
 }
 
 .user {
-    cursor: pointer;
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 90%;
+	cursor: pointer;
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 90%;
+}
+
+.user-room {
+	border-radius: 20px;
+}
+
+.user-room:hover {
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 .online_icon {
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    background-color: #4cd137;
-    border-radius: 50%;
-    bottom: 0.2em;
-    right: 0.4em;
-    border: 1.5px solid white;
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	background-color: #4cd137;
+	border-radius: 50%;
+	bottom: 0.2em;
+	right: 0.4em;
+	border: 1.5px solid white;
 }
 
 .offline {
-    background-color: #c23616 !important;
+	background-color: #c23616 !important;
 }
 
 .user_image_mini {
-    height: 40px;
-    width: 40px;
-    border: 1.5px solid #f5f6fa;
+	height: 40px;
+	width: 40px;
+	border: 1.5px solid #f5f6fa;
 }
 
 .avatar_image {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .avatar_image:hover {
-    background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .img_cont {
-    position: relative;
-    height: 70px;
-    width: 70px;
+	position: relative;
+	height: 70px;
+	width: 70px;
 }
 
 .img_cont_mini {
-    height: 40px;
-    width: 40px;
+	height: 40px;
+	width: 40px;
 }
 
 .room_info {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 15px;
 }
 
 .room_info span {
-    font-size: 20px;
-    color: white;
-    text-overflow: ellipsis;
+	font-size: 20px;
+	color: white;
+	text-overflow: ellipsis;
 }
 
 .room_info p {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.6);
-    cursor: context-menu;
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.6);
+	cursor: context-menu;
 }
 
 .room_info_cell {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 15px;
 }
 
 .room_info_cell span {
-    font-size: 20px;
-    color: white;
+	font-size: 20px;
+	color: white;
 }
 
 .room_info_cell p {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    display: block;
-    height: 100% !important;
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.6);
+	display: block;
+	height: 100% !important;
 }
 
 .content_message_in_room_cell {
-    text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
 
 .room_info_cell div {
-    white-space: nowrap;
-    vertical-align: baseline;
-    display: flex;
-    align-content: center !important;
+	white-space: nowrap;
+	vertical-align: baseline;
+	display: flex;
+	align-content: center !important;
 }
 
 .dot_room_chat {
-    margin: 0px 3px;
+	margin: 0px 3px;
 }
 
 .header_action_btn {
-    position: absolute;
-    margin-top: 5px;
-    right: 15px;
-    float: right;
+	position: absolute;
+	margin-top: 5px;
+	right: 15px;
+	float: right;
 }
 
 .call {
-    display: inline;
-    margin-right: 40px;
+	display: inline;
+	margin-right: 40px;
 }
 
 .call span {
-    color: white;
-    display: inline;
-    font-size: 20px;
-    cursor: pointer;
-    margin-right: 20px;
+	color: white;
+	display: inline;
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 20px;
 }
 
 .action_menu_btn {
-    position: absolute;
-    display: inline;
-    color: white;
-    cursor: pointer;
-    right: 15px;
+	position: absolute;
+	display: inline;
+	color: white;
+	cursor: pointer;
+	right: 15px;
 }
 
 .action_menu {
-    z-index: 1;
-    position: absolute;
-    padding: 15px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 15px;
-    top: 30px;
-    right: 15px;
-    display: none;
+	z-index: 1;
+	position: absolute;
+	padding: 15px 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border-radius: 15px;
+	top: 30px;
+	right: 15px;
+	display: none;
 }
 
 .right_helper_action_menu {
-    z-index: 1;
-    position: absolute;
-    padding: 15px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 15px;
-    top: 30px;
-    right: 15px;
-    display: none;
+	z-index: 1;
+	position: absolute;
+	padding: 15px 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border-radius: 15px;
+	top: 30px;
+	right: 15px;
+	display: none;
 }
 
 .action_menu a {
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
+	color: white;
+	padding: 10px 15px;
+	text-decoration: none;
 }
 
 .action_menu a:hover {
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 .info-dialog {
-    z-index: 1;
-    display: none;
+	z-index: 1;
+	display: none;
 }
 
 .profile_dialog {
-    z-index: 1;
-    position: absolute;
-    padding: 15px 0;
-    background-color: transparent;
-    color: white;
-    border-radius: 15px;
-    overflow: auto;
-    top: 0px;
+	z-index: 1;
+	position: absolute;
+	padding: 15px 0;
+	background-color: transparent;
+	color: white;
+	border-radius: 15px;
+	overflow: auto;
+	top: 0px;
 }
 
 .action_menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .action_menu ul li {
-    width: 100%;
-    height: 40px;
+	width: 100%;
+	height: 40px;
 }
 
 li+li {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 .action_menu ul li i {
-    padding-right: 10px;
+	padding-right: 10px;
 }
 
 .action_menu ul li:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .right_helper_action_menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .right_helper_action_menu ul li {
-    width: 100%;
-    height: 40px;
+	width: 100%;
+	height: 40px;
 }
 
 .right_helper_action_menu ul li i {
-    padding-right: 15px;
+	padding-right: 15px;
 }
 
 .right_helper_action_menu ul li:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .input-helper {
-    width: 100% !important;
-    margin: 0px !important;
-    align-content: center;
+	width: 100% !important;
+	margin: 0px !important;
+	align-content: center;
 }
 
 .input_helper {
-    border-radius: 20px !important;
-    background: transparent;
-    border: 1px;
-    color: white;
+	border-radius: 20px !important;
+	background: transparent;
+	border: 1px;
+	color: white;
 }
 
 .submit_image_room {
-    border: 0px;
-    background-color: transparent !important;
-    color: white !important;
+	border: 0px;
+	background-color: transparent !important;
+	color: white !important;
 }
 
 .msg_container {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    border-radius: 25px;
-    max-width: 60%;
-    background-color: #82ccdd;
-    padding: 10px;
-    position: relative;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+	border-radius: 25px;
+	max-width: 60%;
+	background-color: #82ccdd;
+	padding: 10px;
+	position: relative;
 }
 
 .msg_container_send {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 10px;
-    border-radius: 25px;
-    max-width: 60%;
-    background-color: #78e08f;
-    padding: 10px;
-    position: relative;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 10px;
+	border-radius: 25px;
+	max-width: 60%;
+	background-color: #78e08f;
+	padding: 10px;
+	position: relative;
 }
 
 .before-send-message {
-    background: gray;
+	background: gray;
 }
 
 .msg_name {
-    position: absolute;
-    left: 0;
-    top: -20px;
-    color: #E0FFFF;
-    font-size: 15px;
-    white-space: nowrap;
-    font-weight: bold;
+	position: absolute;
+	left: 0;
+	top: -20px;
+	color: #E0FFFF;
+	font-size: 15px;
+	white-space: nowrap;
+	font-weight: bold;
 }
 
 .msg_time {
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-    white-space: nowrap;
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+	white-space: nowrap;
 }
 
 .justify-content-start+.justify-content-start {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .msg_time_send {
-    position: absolute;
-    right: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-    white-space: nowrap;
+	position: absolute;
+	right: 0;
+	bottom: -15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+	white-space: nowrap;
 }
 
 .msg_head {
-    position: relative;
+	position: relative;
 }
 
 .messages {
-    scroll-snap-type: y proximity;
+	scroll-snap-type: y proximity;
 }
 
-.messages ul {}
+.messages ul {
+	
+}
 
-@media ( max-width: 576px) {
-    .contacts_card {
-        margin-bottom: 15px !important;
-    }
+@media ( max-width : 576px) {
+	.contacts_card {
+		margin-bottom: 15px !important;
+	}
 }

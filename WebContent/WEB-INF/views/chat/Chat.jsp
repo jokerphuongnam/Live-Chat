@@ -53,7 +53,7 @@
 						<jsp:include page="left/rooms.jsp"></jsp:include>
 						<jsp:include page="left/search.jsp"></jsp:include>
 					</div>
-					<div class="card-footer "></div>
+					<div class="card-footer "><span>Họ và tên: Phạm Phương Nam</span></div>
 				</div>
 			</div>
 			<div class="col-sm-10 col-md-8 col-xl-9 chat ">

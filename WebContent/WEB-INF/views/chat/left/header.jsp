@@ -8,7 +8,7 @@
 	<div class="card-header ">
 		<div class="info-user-group d-flex ">
 			<div class="img_cont ">
-				<a href="viewavatar"> <img
+				<a href="viewavatar" > <img
 					src="${currentUser.avatar == null ?'assets/images/Login.png': currentUser.avatar}"
 					class="rounded-circle user_img avatar_image">
 				</a>

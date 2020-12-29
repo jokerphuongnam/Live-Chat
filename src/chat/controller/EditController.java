@@ -92,13 +92,13 @@ public class EditController {
 			@CookieValue(ConstanceUtil.CURRENT_USER_COOKIE) String currentUserJson) {
 		CurrentUser currentUser = new JsonUtil<CurrentUser>(CurrentUser.class,
 				new JsonUtil.CurrentUserForCookiesConfigs()).decode(currentUserJson);
-		currentUser.setPassword("");
 		CurrentUser fullCurrentUser = SqlUtil.login(currentUser.getEmail(), currentUser.getPassword());
+		currentUser.setPassword("");
 		String fullName = fullCurrentUser.getFirstName() + fullCurrentUser.getLastName() == null ? ""
 				: " " + fullCurrentUser.getLastName();
 		model.addAttribute("oldAvatar", fullCurrentUser.getAvatar());
 		model.addAttribute("fullName", fullCurrentUser.getFirstName() + fullName);
-		model.addAttribute("newPasswordUser", fullCurrentUser);
+		model.addAttribute("newPasswordUser", new CurrentUser());
 		return rootPath + "password";
 	}
 

@@ -3,11 +3,7 @@
 <%@ page pageEncoding="utf-8"%>
 <!--bootstrap-->
 <link href="<c:url value="assets/bootstrap/4.1.1/bootstrap.min.css"/>"
-	rel="stylesheet" id="bootstrap-css"/>
-<script src="<c:url value="assets/bootstrap/4.1.1/bootstrap.min.js"/>" >
-</script>
-<!--jquery-->
-<script src="<c:url value="assets/jquery/3.2.1/jquery.min.js"/>"></script>
+	rel="stylesheet" id="bootstrap-css" />
 <!--inclue library-->
 <!DOCTYPE html>
 <html>
@@ -33,8 +29,23 @@
 <body>
 	<div class="container-fluid h-100">
 		<div class="row h-100 justify-content-center align-items-center">
-			<div class="col-md-6 col-xl-7 rigister_card">
-				<div class="card mb-sm-3 mb-md-0 login_card"></div>
+			<div class="col-md-6 col-xl-7">
+				<div class="card mb-sm-3 mb-md-0 login_card un_scroll">
+					<div class="row">
+						<div class="col-9">
+							<h3>Đề tài môn lập trình web</h3>
+							<div>Giảng viên hướng dẫn: Huỳnh Trung Trụ</div>
+							<img src="assets/images/background.jpg" class="background">
+							<div>
+								<h3>Sinh viên thực hiện</h3>
+							</div>
+							<div>Họ và tên: Phạm Phương Nam</div>
+							<div>Mã sinh viên: N17DCCN104</div>
+							<div>Lớp: D17CQCP02-N</div>
+						</div>
+						<div class="col"></div>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-5 col-xl-4 login">
 				<div class="card mb-sm-3 mb-md-0 login_card">
@@ -50,8 +61,8 @@
 								<span class="input-group-text username"><i
 									class="fas fa-user"></i></span>
 							</div>
-							<input type="text" placeholder="Email or phone number" name="usernameTxb"
-								class="form-control username">
+							<input type="text" placeholder="Email or phone number"
+								name="usernameTxb" class="form-control username">
 						</div>
 						<div class="input-group">
 							<div class="input-group-prepend">
@@ -61,7 +72,7 @@
 							<input type="password" placeholder="password" name="passwordTxb"
 								class="form-control password">
 						</div>
-						<label class= "error">${error}</label>
+						<label class="error">${error}</label>
 						<div class="submit-group">
 							<button class="loginBtn" name="loginBtn">Login</button>
 						</div>

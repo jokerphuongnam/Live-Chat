@@ -96,9 +96,6 @@ public final class JsonUtil<T> {
 			jsonObject.addProperty(FIELDS[0], CryptUtil.encrypt(src.getIdUser()));
 			jsonObject.addProperty(FIELDS[1], CryptUtil.encrypt(src.getPassword().trim()));
 			jsonObject.addProperty(FIELDS[2], CryptUtil.encrypt(src.getEmail().trim().toLowerCase()));
-			jsonObject.addProperty(FIELDS[3], src.getFirstName().trim());
-			jsonObject.addProperty(FIELDS[4], src.getLastName().trim());
-			jsonObject.addProperty(FIELDS[5], src.getAvatar());
 			return jsonObject;
 		}
 
@@ -116,13 +113,10 @@ public final class JsonUtil<T> {
 					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[2])))));
 			mapFieldValue.put("password",
 					MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(jsonObject.get(FIELDS[1])))));
-			mapFieldValue.put("first_name", MapperUtil.mapForField(jsonObject.get(FIELDS[3])));
-			mapFieldValue.put("last_name", MapperUtil.mapForField(jsonObject.get(FIELDS[4])));
-			mapFieldValue.put("avatar", MapperUtil.mapForField(jsonObject.get(FIELDS[5])));
 			return mapFieldValue;
 		}
 
-		public static final String[] FIELDS = { "id", "fhasbd", "hasdb", "firstName", "lastName", "avatar" };
+		public static final String[] FIELDS = { "id", "fhasbd", "hasdb" };
 	}
 
 	public static final class ContentMessageForSendMessage
