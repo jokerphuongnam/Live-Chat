@@ -10,7 +10,7 @@ doc.ready(() => {
             case 'sendMessage':
                 if (result.messages[0].id_sender == currentUser.id) {
                     if (idCurrentRoom == null) {
-                        idCurrentRoom = result.id
+                        window.location.replace('chat/' + result.id)
                     }
                     if (idCurrentRoom == result.id) {
                         $('[before-send-id=' + result.id_old_message + ']').remove()
@@ -191,6 +191,7 @@ doc.ready(() => {
                         window.location.replace('chat/' + result.id)
                     } else {
                         roomChat.empty()
+                        inputMess.focus()
                         const currentPartner = $(event.currentTarget)
                         roomChat.html(roomChatInfo({
                             name: currentPartner.find('.room_info_cell').text().trim(),
@@ -322,6 +323,7 @@ doc.ready(() => {
                                 window.location.replace('chat/' + result)
                             } else {
                                 roomChat.empty()
+                                inputMess.focus()
                                 const currentPartner = $(event.currentTarget)
                                 roomChat.html(roomChatInfo({
                                     name: currentPartner.find('.room_info_cell').text().trim(),
@@ -522,21 +524,26 @@ doc.ready(() => {
 
     sendBtn.click((event) => {
         if (inputMess.val().trim() == '') return
-        if (idCurrentRoom != undefined) {
-            const contentSend = inputMess.val().trim()
-            inputMess.val('')
-            const today = new Date()
-            const message = {
-                id_before_send: ++idMessSend,
-                content: contentSend,
-                type: 'text',
-                send_time: `${format(today.getHours() < 12 ? today.getHours() : today.getHours() - 12)}:${format(today.getMinutes())} ${format(today.getDate())}/${format(today.getMonth() + 1)}/${today.getFullYear()}`
-            }
-            msgContainer.append(currentUserMessBeforeSend(message, message.id_before_send))
-            scrollBottom()
-            ajaxHelper(`${Modes.MESSAGE}/${idCurrentRoom == null ? idPartner : idCurrentRoom}`, message, () => {}, (result) => {}, (XMLHttpRequest, textStatus, errorThrown) => {
-                console.log(errorThrown)
-            })
+        switch (idCurrentRoom) {
+            case undefined:
+                return
+            case null:
+            default:
+                const contentSend = inputMess.val().trim()
+                inputMess.val('')
+                const today = new Date()
+                const message = {
+                    id_before_send: ++idMessSend,
+                    content: contentSend,
+                    type: 'text',
+                    send_time: `${format(today.getHours() < 12 ? today.getHours() : today.getHours() - 12)}:${format(today.getMinutes())} ${format(today.getDate())}/${format(today.getMonth() + 1)}/${today.getFullYear()}`
+                }
+                msgContainer.append(currentUserMessBeforeSend(message, message.id_before_send))
+                scrollBottom()
+                ajaxHelper(`${Modes.MESSAGE}/${idCurrentRoom == null ? idPartner : idCurrentRoom}`, message, () => {}, (result) => {}, (XMLHttpRequest, textStatus, errorThrown) => {
+                    console.log(errorThrown)
+                })
+                break
         }
     })
 
