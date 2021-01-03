@@ -66,10 +66,32 @@ public final class SocketController {
 				.decode(contentMessageJson);
 		AtomicReference<Long> idRoom = new AtomicReference<Long>(null);
 		AtomicReference<Long> idReciver = new AtomicReference<Long>(null);
+		Long idRoomTemp = null;
 		try {
-			idRoom.set(Long.valueOf(idRoomUrl));
+			idRoomTemp = Long.valueOf(idRoomUrl);
 		} catch (Exception e) {
-			idReciver.set(MapperUtil.mapForField(CryptUtil.decrypt(MapperUtil.mapForField(idRoomUrl))));
+			idReciver.set(MapperUtil.mapForField(CryptUtil.decrypt(idRoomUrl.replace("|", "/"))));
+		}
+		if(idRoomTemp == null) {
+			SqlUtil.executeStoreProduce("SP_CREATEINBOXROOM", new SQLHandler() {
+				@Override
+				protected void success(StoredProcedureQuery query) {
+					super.success(query);
+					query.registerStoredProcedureParameter("@ID_CHAT", Long.class, ParameterMode.OUT);
+					setParameter("@ID_SENDER", currentUser.getIdUser(), Long.class);
+					setParameter("@ID_RECIVER", idReciver.get(), Long.class);
+					query.execute();
+					idRoom.set(MapperUtil.mapForField(query.getOutputParameterValue("@ID_CHAT")));
+				}
+				
+				@Override
+				public void error(Exception e) {
+					e.printStackTrace();
+				}
+				
+			});
+		}else {
+			idRoom.set(idRoomTemp);
 		}
 		AtomicReference<String> roomJson = new AtomicReference<String>("");
 		sendMessage(currentUser, content, idRoom, currentUser.getIdUser(), idReciver.get(), (messsage) -> {
@@ -87,16 +109,15 @@ public final class SocketController {
 
 	private final void sendMessage(CurrentUser currentUser, ContentMessage contentMessage, AtomicReference<Long> idRoom,
 			Long idSender, Long idReciver, SendMessageForRoom event) {
-		SqlUtil.executeStoreProduce("SP_SENDMESSCHAT", new SQLHandler() {
+		SqlUtil.executeStoreProduce("SP_SENDMESSAGE", new SQLHandler() {
 
 			@Override
 			public void success(StoredProcedureQuery query) {
 				super.success(query);
+				setParameter("@ID_CHAT", idRoom.get(), Long.class);
+				setParameter("@SENDER", idSender, Long.class);
 				setParameter("@CONTENT_MESS", contentMessage.getContent(), String.class);
 				setParameter("@TYPE_MESS", contentMessage.getType(), String.class);
-				setParameter("@ID_CHAT", idRoom.get(), Long.class, true, ParameterMode.INOUT);
-				setParameter("@ID_SENDER", idSender, Long.class);
-				setParameter("@ID_RECIVER", idReciver, Long.class, true);
 				query.execute();
 				if (idRoom.get() == null) {
 					idRoom.set(MapperUtil.mapForField(query.getOutputParameterValue("@ID_CHAT")));

@@ -9,12 +9,15 @@ import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureParameter;
 
 @NamedStoredProcedureQueries(value = {
-		@NamedStoredProcedureQuery(name = "SP_SENDMESSCHAT", procedureName = "SP_SENDMESSCHAT", resultClasses = EmptyDto.class, parameters = {
-				@StoredProcedureParameter(name = "@CONTENT_MESS", mode = ParameterMode.IN, type = String.class),
-				@StoredProcedureParameter(name = "@TYPE_MESS", mode = ParameterMode.IN, type = String.class),
+		@NamedStoredProcedureQuery(name = "SP_CREATEINBOXROOM", procedureName = "SP_CREATEINBOXROOM", resultClasses = EmptyDto.class, parameters = {
+				@StoredProcedureParameter(name = "@ID_CHAT", mode = ParameterMode.OUT, type = String.class),
+				@StoredProcedureParameter(name = "@ID_SENDER", mode = ParameterMode.IN, type = String.class),
+				@StoredProcedureParameter(name = "@ID_RECIVER", mode = ParameterMode.INOUT, type = Long.class) }),
+		@NamedStoredProcedureQuery(name = "SP_SENDMESSAGE", procedureName = "SP_SENDMESSAGE", resultClasses = EmptyDto.class, parameters = {
 				@StoredProcedureParameter(name = "@ID_CHAT", mode = ParameterMode.INOUT, type = Long.class),
-				@StoredProcedureParameter(name = "@ID_SENDER", mode = ParameterMode.IN, type = Long.class),
-				@StoredProcedureParameter(name = "@ID_RECIVER", mode = ParameterMode.IN, type = Long.class) }),
+				@StoredProcedureParameter(name = "@SENDER", mode = ParameterMode.IN, type = Long.class),
+				@StoredProcedureParameter(name = "@CONTENT_MESS", mode = ParameterMode.IN, type = String.class),
+				@StoredProcedureParameter(name = "@TYPE_MESS", mode = ParameterMode.IN, type = String.class) }),
 		@NamedStoredProcedureQuery(name = "SP_REGISTERLOGIN", procedureName = "SP_REGISTERLOGIN", resultClasses = EmptyDto.class, parameters = {
 				@StoredProcedureParameter(name = "@EMAIL", mode = ParameterMode.IN, type = String.class),
 				@StoredProcedureParameter(name = "@PHONE", mode = ParameterMode.IN, type = String.class),

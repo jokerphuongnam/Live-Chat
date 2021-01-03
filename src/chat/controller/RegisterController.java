@@ -9,6 +9,7 @@ import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import chat.user.CurrentUser;
+import chat.utils.MailerUtil;
 import chat.utils.SqlUtil;
 import chat.utils.SqlUtil.SQLHandler;
 
@@ -33,9 +35,9 @@ public final class RegisterController {
 		}
 		return "register/Register";
 	}
-
+//
 //	@Autowired
-//	SpringUtils.Mailer mailer;
+//	MailerUtil mailer;
 
 	@RequestMapping(value = "/register", params = "registerBtn")
 	private final String registerSubmit(RedirectAttributes redirectAttributes, ModelMap model,
