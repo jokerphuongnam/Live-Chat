@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/Register.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/chat/Chat.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/chat/left/rooms.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/register/Register.jsp=UTF-8
 encoding//src/chat/controller/AjaxController.java=UTF-8
 encoding//src/chat/controller/ChatController.java=UTF-8
 encoding//src/chat/controller/EditController.java=UTF-8

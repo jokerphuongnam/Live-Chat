@@ -38,7 +38,6 @@
 					<form class="form-register" action="uploadavatar" method="post"
 						enctype="multipart/form-data">
 						<h2>Change your avatar</h2>
-						<h5>If don't choose image, avatar will default</h5>
 						<div class="input-group image-input">
 							<span> <img alt="Avatar" name="avatar-img"
 								src="${oldAvatar == null ?'assets/images/Login.png':oldAvatar}"
